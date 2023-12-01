@@ -4,14 +4,14 @@ import regex as re
 part1 = input("Is this for part 1? Y/N: ") in ['Y','y']
 
 try:
-   f = open("input01.txt", "r")
+    f = open("input01.txt", "r")
 except:
-   f = open(input("Enter the input file name, e.g. input01.txt: "), "r")
+    f = open(input("Enter the input file name, e.g. input01.txt: "), "r")
 
-"""
-A function to find the first numerical value of a string
-"""
 def get_the_first(text):
+    """
+    A function to find the first numerical value of a string.
+    """
     the_first = 0
     found = False
     while not found:
@@ -35,11 +35,11 @@ for line in f.read().strip().split('\n'):
 
         # If there are any, replace them with numbers
         if len(result) == 1:
-           line = line.split(result[0])[0] + numbers[result[0]] + line.split(result[0])[-1]
+            line = line.split(result[0])[0] + numbers[result[0]] + line.split(result[0])[-1]
         elif len(result) >= 2:
-           line1 = line.split(result[0])[0] + numbers[result[0]] + line.split(result[0])[-1]
-           line2 = line.split(result[-1])[0] + numbers[result[-1]] + line.split(result[-1])[-1]
-           line = line1 + line2
+            line1 = line.split(result[0])[0] + numbers[result[0]] + line.split(result[0])[-1]
+            line2 = line.split(result[-1])[0] + numbers[result[-1]] + line.split(result[-1])[-1]
+            line = line1 + line2
 
     # Now find the first and last digit in the modified text line
     first_digit  = get_the_first(line)
