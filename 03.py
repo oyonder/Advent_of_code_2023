@@ -26,8 +26,10 @@ def find_numbers_locations(lines):
     return loc_numbers
 
 def main():
-    part1 = input("Is this the part 1? Y/N") in ['y', 'Y']
-    file_name = input("Enter the input file name, e.g. input03.txt: ")
+
+    part1 = input("Is this the part 1? Y/N ") in ['y', 'Y']
+
+    file_name = input("Enter the input file name, e.g. input.txt: ")
     lines = read_file(file_name)
     loc_numbers = find_numbers_locations(lines)
 
@@ -62,7 +64,7 @@ def main():
  
     else:
 
-        # Find all the numbers around a symbol
+        # Find all the numbers around a gear (*)
         for i, row in enumerate(lines):
             for j, value in enumerate(row):
                 if value == '*':
@@ -77,7 +79,7 @@ def main():
                                    or j + 1 in range(num[0], num[1])
                             )
                     
-                    # If around that symbol there is exactly two numbers add them to the sum
+                    # If around that gear there is exactly two numbers add them to the sum
                     if len(numbers) == 2:
                         gear_ratio = numbers[0] * numbers[1]
                         answer += gear_ratio
