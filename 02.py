@@ -4,10 +4,12 @@ part1 = input("Is this for part 1? Y/N: ") in ['Y','y']
 part2 = not part1
 
 try:
-    f = open("input02.txt", "r")
-except:
-    f = open(input("Enter the input file name, e.g. input02.txt: "), "r")
-
+    with open("input02.txt", "r") as input_file:
+        lines = input_file.read().strip().split('\n')
+except FileNotFoundError:
+    filename = input("Enter the input file name, e.g., input02.txt: ")
+    with open(filename, "r") as input_file:
+        lines = input_file.read().strip().split('\n')
 
 verbose = False
 
@@ -20,7 +22,7 @@ total = 0
 
 
 # Loop over games
-for game in f.read().strip().split('\n'):
+for game in lines:
 
     game_no = int(game.split(':')[0].split('Game')[1])
 
