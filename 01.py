@@ -3,10 +3,17 @@ import regex as re
 
 part1 = input("Is this for part 1? Y/N: ") in ['Y','y']
 
+numbers = {"one":"1","two":"2","three":"3","four":"4","five":"5","six":"6","seven":"7","eight":"8","nine":"9"}
+
+
 try:
-    f = open("input01.txt", "r")
-except:
-    f = open(input("Enter the input file name, e.g. input01.txt: "), "r")
+    with open("input01.txt", "r") as input_file:
+        lines = input_file.read().strip().split('\n')
+except FileNotFoundError:
+    filename = input("Enter the input file name, e.g., input.txt: ")
+    with open(filename, "r") as input_file:
+        lines = input_file.read().strip().split('\n')
+
 
 def get_the_first(text):
     """
@@ -25,9 +32,8 @@ def get_the_first(text):
     return the_first
 
 answer = 0
-numbers = {"one":"1","two":"2","three":"3","four":"4","five":"5","six":"6","seven":"7","eight":"8","nine":"9"}
 
-for line in f.read().strip().split('\n'):
+for line in lines:
 
     if not part1:
         # Find all the matches which are written as text
