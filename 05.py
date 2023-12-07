@@ -229,7 +229,6 @@ def main():
 
     file_name = input("Enter the input file name, e.g. input.txt: ")
     lines = read_file(file_name)
-#    lines.remove('')
 
     verbose = False
 
