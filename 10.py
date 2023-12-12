@@ -28,8 +28,8 @@ def find_two_possibilities(start_loc, lines):
     lines(list): the lines in the files
 
     Returns:
-    two_possibilities(list): returns list of tuples with the two possible 
-                             directions to go from the starting locaion. 
+    two_possibilities: returns tuples with the two possible 
+                       directions to go from the starting locaion. 
     """
     y0,x0 = start_loc[0], start_loc[1]
     two_possibilities = []
@@ -50,7 +50,7 @@ def find_two_possibilities(start_loc, lines):
 
 def find_next(current, visited, lines):
     """
-    Finds the next element given the current location and its symbol.
+    Finds the next element given the current location.
     
     Args:
     current(tuple): Location of the current pipe
